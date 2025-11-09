@@ -2,13 +2,14 @@ import React, { use, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoEyeOff } from "react-icons/io5";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Contexts/AuthContext/AuthContext";
 import toast from "react-hot-toast";
 
 const Login = () => {
   const [show, setShow] = useState(false);
   const { userLogin, setUser } = use(AuthContext);
+  const location = useLocation();
   const navigate = useNavigate();
 
   const handleLogin = (e) => {

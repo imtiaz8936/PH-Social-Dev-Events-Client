@@ -3,6 +3,11 @@ import Home from "../../Pages/Home";
 import Root from "../../Layouts/Root/Root";
 import Register from "../../Pages/Register";
 import Login from "../../Pages/Login";
+import CreateEvent from "../../Pages/CreateEvent";
+import JoinedEvents from "../../Pages/JoinedEvents";
+import ManageEvents from "../../Pages/ManageEvents";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
+import UpcomingEvents from "../../Pages/UpcomingEvents";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +25,38 @@ export const router = createBrowserRouter([
       {
         path: "/auth-login",
         Component: Login,
+      },
+      {
+        path: "/upcoming-events",
+        element: (
+          <PrivateRoutes>
+            <UpcomingEvents></UpcomingEvents>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/manage-events",
+        element: (
+          <PrivateRoutes>
+            <ManageEvents></ManageEvents>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/joined-events",
+        element: (
+          <PrivateRoutes>
+            <JoinedEvents></JoinedEvents>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/create-event",
+        element: (
+          <PrivateRoutes>
+            <CreateEvent></CreateEvent>
+          </PrivateRoutes>
+        ),
       },
     ],
   },

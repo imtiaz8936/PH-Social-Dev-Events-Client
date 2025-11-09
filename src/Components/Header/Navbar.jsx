@@ -16,19 +16,25 @@ const Navbar = () => {
         <li className="font-semibold text-[17px]">Home</li>
       </NavLink>
       <NavLink
-        to="/my-products"
+        to="/upcoming-events"
         className={({ isActive }) => `${isActive ? "active-link" : ""}`}
       >
         <li className="font-semibold text-[17px]">Upcoming Events</li>
       </NavLink>
       <NavLink
-        to="/my-products"
+        to="/manage-events"
         className={({ isActive }) => `${isActive ? "active-link" : ""}`}
       >
-        <li className="font-semibold text-[17px]">My Events</li>
+        <li className="font-semibold text-[17px]">Manage Events</li>
       </NavLink>
       <NavLink
-        to="/create-product"
+        to="/joined-events"
+        className={({ isActive }) => `${isActive ? "active-link" : ""}`}
+      >
+        <li className="font-semibold text-[17px]">Joined Events</li>
+      </NavLink>
+      <NavLink
+        to="/create-event"
         className={({ isActive }) => `${isActive ? "active-link" : ""}`}
       >
         <li className="font-semibold text-[17px]">Create Event</li>
