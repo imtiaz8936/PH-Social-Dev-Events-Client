@@ -1,11 +1,33 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoEyeOff } from "react-icons/io5";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { AuthContext } from "../Contexts/AuthContext/AuthContext";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [show, setShow] = useState(false);
+  const { userLogin, setUser } = use(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    userLogin(email, password)
+      .then((userCredential) => {
+        toast.success("You Successfully Logged In");
+        console.log(userCredential.user);
+        setUser(userCredential.user);
+        navigate(location.state || "/");
+      })
+      .catch((error) => {
+        toast.error(error);
+      });
+  };
+
   return (
     <div className="max-w-7xl mx-auto flex justify-center items-center mt-10">
       <title>Login</title>
@@ -14,7 +36,7 @@ const Login = () => {
           Login Your Account
         </h1>
         <div className="card-body">
-          <form>
+          <form onSubmit={handleLogin}>
             <fieldset className="fieldset">
               <label className="label">Email</label>
               <input
