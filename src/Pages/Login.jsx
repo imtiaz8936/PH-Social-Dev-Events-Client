@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import { FaEye } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import { IoEyeOff } from "react-icons/io5";
 import { Link } from "react-router";
 
 const Login = () => {
+  const [show, setShow] = useState(false);
   return (
-    <div className="max-w-7xl mx-auto flex justify-center items-center mt-30">
+    <div className="max-w-7xl mx-auto flex justify-center items-center mt-10">
       <title>Login</title>
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <h1 className="font-bold text-3xl text-center mt-5">
@@ -24,12 +28,17 @@ const Login = () => {
                   Password
                 </label>
                 <input
-                  type="password"
+                  type={show ? "text" : "password"}
                   name="password"
                   placeholder="Password"
                   className="input"
                 />
-                <span className="absolute right-6 top-9 cursor-pointer z-50"></span>
+                <span
+                  onClick={() => setShow(!show)}
+                  className="absolute right-6 top-9 cursor-pointer z-50"
+                >
+                  {show ? <IoEyeOff size={20} /> : <FaEye size={20} />}
+                </span>
               </div>
               <div>
                 <a className="link link-hover">Forgot password?</a>
@@ -42,7 +51,7 @@ const Login = () => {
               </button>
               <p className="flex flex-inline gap-3 font-semibold text-[14px] mt-2">
                 Don't have an account?
-                <Link to="/auth/register" className="text-red-500 underline">
+                <Link to="/auth-register" className="text-red-500 underline">
                   Register
                 </Link>
               </p>
@@ -55,9 +64,9 @@ const Login = () => {
           </div>
           <button
             type="button"
-            className="flex items-center justify-center gap-3 btn btn-neutral mt-4 text-[16px] px-5 py-2 rounded-md w-full font-semibold hover:text-black hover:bg-gray-100 transition-colors cursor-pointer"
+            className="flex items-center justify-center gap-3 btn btn-neutral mt-2 text-[16px] px-5 py-2 rounded-md w-full font-semibold hover:text-black hover:bg-gray-100 transition-colors cursor-pointer"
           >
-            Google
+            <FcGoogle size={20}></FcGoogle> Google
           </button>
         </div>
       </div>
