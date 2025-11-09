@@ -78,10 +78,10 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 gap-4">{navLinks}</ul>
         </div>
         <div className="navbar-end gap-4">
-          <Link to="/login" className="btn btn-primary">
+          <Link to="/auth-login" className="btn btn-primary">
             Log In
           </Link>
-          <Link to="/register" className="btn btn-primary">
+          <Link to="/auth-register" className="btn btn-primary">
             Sign Up
           </Link>
         </div>
