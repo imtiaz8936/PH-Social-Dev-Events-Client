@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Link, NavLink } from "react-router";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
@@ -8,6 +8,7 @@ import { IoLogOutOutline } from "react-icons/io5";
 
 const Navbar = () => {
   const { user, userLogout } = use(AuthContext);
+  const [showName, setShowName] = useState(false);
   const dummyPhotoURL =
     "https://png.pngtree.com/png-vector/20240910/ourmid/pngtree-business-man-avatar-on-isolate-png-image_13805756.png";
 
@@ -98,9 +99,9 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 gap-4">{navLinks}</ul>
         </div>
         {user ? (
-          <div className="navbar-end gap-4">
+          <div className="navbar-end gap-4 relative">
             <button
-              className=""
+              className="cursor-pointer"
               popoverTarget="popover-1"
               style={{ anchorName: "--anchor-1" }}
             >
@@ -108,8 +109,16 @@ const Navbar = () => {
                 className="w-14 h-14 rounded-full"
                 src={user.photoURL || dummyPhotoURL}
                 alt=""
+                onMouseEnter={() => setShowName(true)}
+                onMouseLeave={() => setShowName(false)}
               />
             </button>
+            {/* Tooltip */}
+            {showName && (
+              <div className="absolute mt-32 mr-10 bg-gray-800 text-white text-sm px-3 py-1 rounded-md shadow-md whitespace-nowrap z-10">
+                {user.displayName}
+              </div>
+            )}
             <div
               className="dropdown menu w-52 rounded-box bg-base-100 shadow-sm space-y-3"
               popover="auto"
