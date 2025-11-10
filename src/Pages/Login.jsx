@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 
 const Login = () => {
   const [show, setShow] = useState(false);
-  const { userLogin, setUser } = use(AuthContext);
+  const { userLogin, setUser, userSignInWithGoogle } = use(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -20,6 +20,19 @@ const Login = () => {
     userLogin(email, password)
       .then((userCredential) => {
         toast.success("You Successfully Logged In");
+        console.log(userCredential.user);
+        setUser(userCredential.user);
+        navigate(location.state || "/");
+      })
+      .catch((error) => {
+        toast.error(error);
+      });
+  };
+
+  const handleGoogleSignin = () => {
+    userSignInWithGoogle()
+      .then((userCredential) => {
+        toast.success("You Successfully Logged In SWAPSKILL");
         console.log(userCredential.user);
         setUser(userCredential.user);
         navigate(location.state || "/");
@@ -87,6 +100,7 @@ const Login = () => {
           </div>
           <button
             type="button"
+            onClick={handleGoogleSignin}
             className="flex items-center justify-center gap-3 btn btn-neutral mt-2 text-[16px] px-5 py-2 rounded-md w-full font-semibold hover:text-black hover:bg-gray-100 transition-colors cursor-pointer"
           >
             <FcGoogle size={20}></FcGoogle> Google

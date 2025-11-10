@@ -9,7 +9,8 @@ import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
   const [show, setShow] = useState(false);
-  const { createUser, updateProfileFunc, setUser } = use(AuthContext);
+  const { createUser, updateProfileFunc, setUser, userSignInWithGoogle } =
+    use(AuthContext);
   const navigate = useNavigate();
 
   const handleCreateUser = (e) => {
@@ -32,6 +33,19 @@ const Register = () => {
           .catch((error) => {
             toast.error(error);
           });
+      })
+      .catch((error) => {
+        toast.error(error);
+      });
+  };
+
+  const handleGoogleSignin = () => {
+    userSignInWithGoogle()
+      .then((userCredential) => {
+        toast.success("You Successfully Logged In");
+        console.log(userCredential.user);
+        setUser(userCredential.user);
+        navigate("/");
       })
       .catch((error) => {
         toast.error(error);
@@ -112,6 +126,7 @@ const Register = () => {
           {/* Google Signin */}
           <button
             type="button"
+            onClick={handleGoogleSignin}
             className="flex items-center justify-center gap-3 btn btn-neutral mt-2 text-[16px] px-5 py-2 rounded-md w-full font-semibold hover:text-black hover:bg-gray-100 transition-colors cursor-pointer"
           >
             <FcGoogle size={20}></FcGoogle> Google
