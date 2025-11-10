@@ -36,6 +36,11 @@ const Navbar = () => {
       >
         <li className="font-semibold text-[17px]">Upcoming Events</li>
       </NavLink>
+    </>
+  );
+
+  const profilePicNavLinks = (
+    <>
       <NavLink
         to="/manage-events"
         className={({ isActive }) => `${isActive ? "active-link" : ""}`}
@@ -120,20 +125,23 @@ const Navbar = () => {
               </div>
             )}
             <div
-              className="dropdown menu w-52 rounded-box bg-base-100 shadow-sm space-y-3"
+              className="dropdown menu w-52 rounded-box bg-base-100 shadow-sm space-y-4"
               popover="auto"
               id="popover-1"
               style={{ positionAnchor: "--anchor-1" }}
             >
-              <div>
-                <h2 className="text-xl font-semibold">{user.displayName}</h2>
-                <p className="text-black text-[16px]">{user.email}</p>
+              <div className="space-y-2">
+                <div>
+                  <h2 className="text-xl font-semibold">{user.displayName}</h2>
+                  <p className="text-red-500 text-[16px]">{user.email}</p>
+                </div>
+                {profilePicNavLinks}
               </div>
               <Link
                 to="/auth-login"
                 onClick={handleLogout}
-                className="btn btn-primary w-2/3 text-[16px] 
-                                flex flex-inline justify-start items-center"
+                className="btn btn-primary w-full text-[16px] 
+                                flex flex-inline justify-center items-center"
               >
                 Log Out <IoLogOutOutline size={20} />
               </Link>

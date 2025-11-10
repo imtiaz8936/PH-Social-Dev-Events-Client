@@ -28,11 +28,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/upcoming-events",
-        element: (
-          <PrivateRoutes>
-            <UpcomingEvents></UpcomingEvents>
-          </PrivateRoutes>
-        ),
+        Component: UpcomingEvents,
       },
       {
         path: "/manage-events",
