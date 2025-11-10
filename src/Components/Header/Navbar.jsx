@@ -3,10 +3,24 @@ import { Link, NavLink } from "react-router";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
 import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
+import toast from "react-hot-toast";
+import { IoLogOutOutline } from "react-icons/io5";
 
 const Navbar = () => {
-  const { name } = use(AuthContext);
-  console.log(name);
+  const { user, userLogout } = use(AuthContext);
+  const dummyPhotoURL =
+    "https://png.pngtree.com/png-vector/20240910/ourmid/pngtree-business-man-avatar-on-isolate-png-image_13805756.png";
+
+  const handleLogout = () => {
+    userLogout()
+      .then(() => {
+        toast.success("You Logged Out");
+      })
+      .catch((error) => {
+        toast.error(error);
+      });
+  };
+
   const navLinks = (
     <>
       <NavLink
@@ -83,14 +97,56 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-4">{navLinks}</ul>
         </div>
-        <div className="navbar-end gap-4">
-          <Link to="/auth-login" className="btn btn-primary">
-            Log In
-          </Link>
-          <Link to="/auth-register" className="btn btn-primary">
-            Sign Up
-          </Link>
-        </div>
+        {user ? (
+          <div className="navbar-end gap-4">
+            <button
+              className=""
+              popoverTarget="popover-1"
+              style={{ anchorName: "--anchor-1" }}
+            >
+              <img
+                className="w-14 h-14 rounded-full"
+                src={user.photoURL || dummyPhotoURL}
+                alt=""
+              />
+            </button>
+            <div
+              className="dropdown menu w-52 rounded-box bg-base-100 shadow-sm space-y-3"
+              popover="auto"
+              id="popover-1"
+              style={{ positionAnchor: "--anchor-1" }}
+            >
+              <div>
+                <h2 className="text-xl font-semibold">{user.displayName}</h2>
+                <p className="text-black text-[16px]">{user.email}</p>
+              </div>
+              <Link
+                to="/auth-login"
+                onClick={handleLogout}
+                className="btn btn-primary w-2/3 text-[16px] 
+                                flex flex-inline justify-start items-center"
+              >
+                Log Out <IoLogOutOutline size={20} />
+              </Link>
+            </div>
+            <Link
+              to="/auth-login"
+              onClick={handleLogout}
+              className="btn btn-primary text-[16px]"
+            >
+              Log Out
+            </Link>
+          </div>
+        ) : (
+          <div className="navbar-end gap-4">
+            <Link to="/auth-login" className="btn btn-primary text-[16px]">
+              Log In
+            </Link>
+            <Link to="/auth-register" className="btn btn-primary text-[16px]">
+              Sign Up
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
