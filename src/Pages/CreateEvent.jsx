@@ -1,10 +1,12 @@
 import React, { use } from "react";
 import { BsArrowLeft } from "react-icons/bs";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Contexts/AuthContext/AuthContext";
+import toast from "react-hot-toast";
 
 const CreateEvent = () => {
   const { user } = use(AuthContext);
+  const navigate = useNavigate();
 
   const handleCreateEvent = (e) => {
     e.preventDefault();
@@ -40,6 +42,8 @@ const CreateEvent = () => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+    toast.success("Your Event Created Successfully");
+    navigate("/upcoming-events");
   };
 
   return (
