@@ -8,6 +8,7 @@ import JoinedEvents from "../../Pages/JoinedEvents";
 import ManageEvents from "../../Pages/ManageEvents";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import UpcomingEvents from "../../Pages/UpcomingEvents";
+import EventDetails from "../../Pages/EventDetails";
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +30,18 @@ export const router = createBrowserRouter([
       {
         path: "/upcoming-events",
         Component: UpcomingEvents,
+      },
+      {
+        path: "/upcoming-events/event-details/:id",
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:3000/upcoming-events/event-details/${params.id}`
+          ),
+        element: (
+          <PrivateRoutes>
+            <EventDetails></EventDetails>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/manage-events",

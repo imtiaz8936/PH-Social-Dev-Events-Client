@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const EventCard = ({ event }) => {
   return (
@@ -32,9 +33,11 @@ const EventCard = ({ event }) => {
         </div>
 
         {/* View Button */}
-        <button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded-lg cursor-pointer transition-colors duration-200">
-          View Event
-        </button>
+        <Link to={`/upcoming-events/event-details/${event._id}`}>
+          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded-lg cursor-pointer transition-colors duration-200">
+            View Event
+          </button>
+        </Link>
       </div>
     </div>
   );
