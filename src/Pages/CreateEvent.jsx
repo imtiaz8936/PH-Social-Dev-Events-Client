@@ -1,7 +1,202 @@
-import React from "react";
+import React, { use } from "react";
+import { BsArrowLeft } from "react-icons/bs";
+import { Link } from "react-router";
+import { AuthContext } from "../Contexts/AuthContext/AuthContext";
 
 const CreateEvent = () => {
-  return <div>Create Event</div>;
+  const { user } = use(AuthContext);
+
+  const handleCreateEvent = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const event_title = form.eventTitle.value;
+    const event_type = form.eventType.value;
+    const event_image = form.eventImageURL.value;
+    const creator_name = form.eventCreatorName.value;
+    const creator_email = form.eventCreatorEmail.value;
+    const creator_contact = form.eventCreatorContact.value;
+    const creator_image = form.eventCreatorImageURL.value || user.photoURL;
+    const event_location = form.eventLocation.value;
+    const event_description = form.eventDescription.value;
+    const newEvent = {
+      event_title,
+      event_type,
+      event_image,
+      creator_name,
+      creator_email,
+      creator_contact,
+      creator_image,
+      event_location,
+      event_description,
+      created_at: new Date(),
+    };
+
+    fetch("http://localhost:3000/create-event", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newEvent),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
+
+  return (
+    <div>
+      <div className="flex justify-center">
+        <button className="text-gray-600 mb-5 cursor-pointer hover:text-purple-600 mt-10">
+          <Link to="/upcoming-events" className="flex gap-1 items-center">
+            <BsArrowLeft size={20} />
+            <span className="font-medium">Back To Events</span>
+          </Link>
+        </button>
+      </div>
+
+      <h1 className="font-bold text-4xl text-center mb-10">
+        Create <span className="text-[#894fed]">an Event</span>
+      </h1>
+      <div className="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg mb-8">
+        <form
+          onSubmit={handleCreateEvent}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
+          {/* Title */}
+          <div>
+            <label className="block text-gray-700 font-medium mb-1">
+              Event Title
+            </label>
+            <input
+              type="text"
+              name="eventTitle"
+              placeholder="e.g. Tree Plantation"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+          </div>
+
+          {/* Category */}
+          <div>
+            <label className="block text-gray-700 font-medium mb-1">
+              Event Type
+            </label>
+            <select
+              name="eventType"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            >
+              <option value="">Select a Type</option>
+              <option>Health</option>
+              <option>Environment</option>
+              <option>Education</option>
+              <option>Community</option>
+              <option>Equality</option>
+            </select>
+          </div>
+
+          {/* Product Image URL */}
+          <div className="md:col-span-2">
+            <label className="block text-gray-700 font-medium mb-1">
+              Event Image URL
+            </label>
+            <input
+              type="url"
+              name="eventImageURL"
+              placeholder="https://..."
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+          </div>
+
+          {/* Seller Info */}
+          <div>
+            <label className="block text-gray-700 font-medium mb-1">
+              Your Name
+            </label>
+            <input
+              type="text"
+              disabled={true}
+              value={user.displayName}
+              name="eventCreatorName"
+              placeholder="e.g. Artisan Roasters"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-gray-700 font-medium mb-1">
+              Your Email
+            </label>
+            <input
+              type="email"
+              disabled={true}
+              value={user.email}
+              name="eventCreatorEmail"
+              placeholder="e.g. example@email.com"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-gray-700 font-medium mb-1">
+              Your Contact
+            </label>
+            <input
+              type="tel"
+              name="eventCreatorContact"
+              placeholder="e.g. +880 121-1234567"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-gray-700 font-medium mb-1">
+              Your Image URL
+            </label>
+            <input
+              type="url"
+              name="eventCreatorImageURL"
+              placeholder="https://..."
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+          </div>
+
+          {/* Location */}
+          <div className="md:col-span-2">
+            <label className="block text-gray-700 font-medium mb-1">
+              Event Location
+            </label>
+            <input
+              type="text"
+              name="eventLocation"
+              placeholder="City, Country"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+          </div>
+
+          {/* Description */}
+          <div className="md:col-span-2">
+            <label className="block text-gray-700 font-medium mb-1">
+              Simple Description about your Event
+            </label>
+            <textarea
+              rows="3"
+              name="eventDescription"
+              placeholder="e.g. The event is about..."
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+            ></textarea>
+          </div>
+
+          {/* Button */}
+          <div className="md:col-span-2">
+            <button
+              type="submit"
+              className="w-full bg-linear-to-r from-purple-500 to-indigo-500 text-white py-3 rounded-md font-semibold hover:opacity-90 transition"
+            >
+              Create an Event
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
 };
 
 export default CreateEvent;
