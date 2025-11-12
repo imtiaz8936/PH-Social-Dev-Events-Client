@@ -30,7 +30,12 @@ const ManageEvents = () => {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {myCreatedEvents.map((event) => (
-          <ManageEventsCard key={event._id} event={event}></ManageEventsCard>
+          <ManageEventsCard
+            key={event._id}
+            event={event}
+            myCreatedEvents={myCreatedEvents}
+            setMyCreatedEvents={setMyCreatedEvents}
+          ></ManageEventsCard>
         ))}
       </div>
     </div>
