@@ -1,54 +1,50 @@
 import React, { use } from "react";
-import { BsArrowLeft } from "react-icons/bs";
-import { Link, useNavigate } from "react-router";
-import { AuthContext } from "../Contexts/AuthContext/AuthContext";
 import toast from "react-hot-toast";
+import { AuthContext } from "../Contexts/AuthContext/AuthContext";
+import { Link, useLoaderData, useNavigate } from "react-router";
+import { BsArrowLeft } from "react-icons/bs";
 
-const CreateEvent = () => {
+const UpdateEventForm = () => {
   const { user } = use(AuthContext);
+  const updatingEvent = useLoaderData();
   const navigate = useNavigate();
 
-  const handleCreateEvent = (e) => {
+  const handleUpdateEvent = (e) => {
     e.preventDefault();
     const form = e.target;
     const event_title = form.eventTitle.value;
     const event_type = form.eventType.value;
     const event_image = form.eventImageURL.value;
-    const creator_name = form.eventCreatorName.value;
-    const creator_email = form.eventCreatorEmail.value;
     const creator_contact = form.eventCreatorContact.value;
     const creator_image = form.eventCreatorImageURL.value || user.photoURL;
     const event_location = form.eventLocation.value;
     const event_description = form.eventDescription.value;
-    const newEvent = {
+    const updatedEvent = {
       event_title,
       event_type,
       event_image,
-      creator_name,
-      creator_email,
       creator_contact,
       creator_image,
       event_location,
       event_description,
-      created_at: new Date(),
     };
 
-    fetch("http://localhost:3000/create-event", {
-      method: "POST",
+    fetch(`http://localhost:3000/update-event/${updatingEvent._id}`, {
+      method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(newEvent),
+      body: JSON.stringify(updatedEvent),
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
-    toast.success("Your Event Created Successfully");
-    navigate("/upcoming-events");
+    toast.success("Your Event Updated Successfully");
+    navigate("/manage-events");
   };
 
   return (
     <div className="w-11/12 mx-auto">
-      <title>Create Event</title>
+      <title>Update Event</title>
       <div className="flex justify-center">
         <button className="text-gray-600 mb-5 cursor-pointer hover:text-purple-600 mt-10">
           <Link to="/upcoming-events" className="flex gap-1 items-center">
@@ -59,11 +55,11 @@ const CreateEvent = () => {
       </div>
 
       <h1 className="font-bold text-4xl text-center mb-10">
-        Create <span className="text-[#894fed]">an Event</span>
+        Update <span className="text-[#894fed]">an Event</span>
       </h1>
       <div className="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg mb-8">
         <form
-          onSubmit={handleCreateEvent}
+          onSubmit={handleUpdateEvent}
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {/* Title */}
@@ -73,6 +69,7 @@ const CreateEvent = () => {
             </label>
             <input
               type="text"
+              defaultValue={updatingEvent.event_title}
               name="eventTitle"
               placeholder="e.g. Tree Plantation"
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
@@ -86,6 +83,7 @@ const CreateEvent = () => {
             </label>
             <select
               name="eventType"
+              defaultValue={updatingEvent.event_type}
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             >
               <option value="">Select a Type</option>
@@ -104,6 +102,7 @@ const CreateEvent = () => {
             </label>
             <input
               type="url"
+              defaultValue={updatingEvent.event_image}
               name="eventImageURL"
               placeholder="https://..."
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
@@ -145,6 +144,7 @@ const CreateEvent = () => {
             </label>
             <input
               type="tel"
+              defaultValue={updatingEvent.creator_contact}
               name="eventCreatorContact"
               placeholder="e.g. +880 121-1234567"
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
@@ -157,6 +157,7 @@ const CreateEvent = () => {
             </label>
             <input
               type="url"
+              defaultValue={updatingEvent.creator_image}
               name="eventCreatorImageURL"
               placeholder="https://..."
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
@@ -170,6 +171,7 @@ const CreateEvent = () => {
             </label>
             <input
               type="text"
+              defaultValue={updatingEvent.event_location}
               name="eventLocation"
               placeholder="City, Country"
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
@@ -183,6 +185,7 @@ const CreateEvent = () => {
             </label>
             <textarea
               rows="3"
+              defaultValue={updatingEvent.event_description}
               name="eventDescription"
               placeholder="e.g. The event is about..."
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
@@ -195,7 +198,7 @@ const CreateEvent = () => {
               type="submit"
               className="w-full bg-linear-to-r from-purple-500 to-indigo-500 text-white py-3 rounded-md font-semibold hover:opacity-90 transition"
             >
-              Create an Event
+              Confirm Update
             </button>
           </div>
         </form>
@@ -204,4 +207,4 @@ const CreateEvent = () => {
   );
 };
 
-export default CreateEvent;
+export default UpdateEventForm;

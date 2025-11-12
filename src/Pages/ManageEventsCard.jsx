@@ -33,11 +33,14 @@ const ManageEventsCard = ({ event }) => {
         </div>
 
         {/* View Button */}
-        <div className="flex gap-5">
-          <button className="w-1/2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded-lg cursor-pointer transition-colors duration-200">
-            Update Event
-          </button>
-          <button className="w-1/2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium py-2 px-4 rounded-lg cursor-pointer transition-colors duration-200">
+        <div className="flex justify-between">
+          <Link to={`/update-event/${event._id}`}>
+            <button className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded-lg cursor-pointer transition-colors duration-200">
+              Update Event
+            </button>
+          </Link>
+
+          <button className="bg-red-600 hover:bg-red-700 text-white text-sm font-medium py-2 px-4 rounded-lg cursor-pointer transition-colors duration-200">
             Delete Event
           </button>
         </div>

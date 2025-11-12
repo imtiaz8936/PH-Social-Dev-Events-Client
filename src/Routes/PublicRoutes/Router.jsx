@@ -10,6 +10,7 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import UpcomingEvents from "../../Pages/UpcomingEvents";
 import EventDetails from "../../Pages/EventDetails";
 import JoinEventForm from "../../Pages/JoinEventForm";
+import UpdateEventForm from "../../Pages/UpdateEventForm";
 
 export const router = createBrowserRouter([
   {
@@ -57,6 +58,16 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <ManageEvents></ManageEvents>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/update-event/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/update-event/${params.id}`),
+        element: (
+          <PrivateRoutes>
+            <UpdateEventForm></UpdateEventForm>
           </PrivateRoutes>
         ),
       },
