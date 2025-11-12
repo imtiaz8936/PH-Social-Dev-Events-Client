@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 const EventDetails = () => {
   const result = useLoaderData();
@@ -51,7 +51,7 @@ const EventDetails = () => {
         </div>
 
         {/* Creator Info */}
-        <div className="border-t pt-4">
+        <div className="border-t pt-4 mb-6">
           <h3 className="text-lg font-semibold text-gray-800 mb-2">
             Event Organizer
           </h3>
@@ -59,6 +59,13 @@ const EventDetails = () => {
           <p className="text-blue-600 text-sm mb-1">{event.creator_email}</p>
           <p className="text-gray-600 text-sm">📞 {event.creator_contact}</p>
         </div>
+
+        {/* Join Event Button */}
+        <Link to={`/join-event-form/${event._id}`}>
+          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded-lg cursor-pointer transition-colors duration-200">
+            Join This Event
+          </button>
+        </Link>
       </div>
     </div>
   );

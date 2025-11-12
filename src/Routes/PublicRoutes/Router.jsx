@@ -9,6 +9,7 @@ import ManageEvents from "../../Pages/ManageEvents";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import UpcomingEvents from "../../Pages/UpcomingEvents";
 import EventDetails from "../../Pages/EventDetails";
+import JoinEventForm from "../../Pages/JoinEventForm";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,18 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <EventDetails></EventDetails>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/join-event-form/:id",
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:3000/upcoming-events/event-details/${params.id}`
+          ),
+        element: (
+          <PrivateRoutes>
+            <JoinEventForm></JoinEventForm>
           </PrivateRoutes>
         ),
       },
