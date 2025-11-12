@@ -38,11 +38,7 @@ export const router = createBrowserRouter([
           fetch(
             `http://localhost:3000/upcoming-events/event-details/${params.id}`
           ),
-        element: (
-          <PrivateRoutes>
-            <EventDetails></EventDetails>
-          </PrivateRoutes>
-        ),
+        Component: EventDetails,
       },
       {
         path: "/join-event-form/:id",
