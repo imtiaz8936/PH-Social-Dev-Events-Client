@@ -50,7 +50,7 @@ const CreateEvent = () => {
       creator_image,
       event_location,
       event_description,
-      created_at: selectedDate.toISOString(),
+      event_date: selectedDate.toISOString(),
     };
 
     fetch("http://localhost:3000/create-event", {
