@@ -92,7 +92,7 @@ const Register = () => {
                 PhotoURL
               </label>
               <input
-                type="text"
+                type="url"
                 name="photoURL"
                 className="input"
                 placeholder="PhotoURL"

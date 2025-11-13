@@ -31,6 +31,7 @@ const JoinEventForm = () => {
       joiner_contact,
       joiner_image,
       event_location,
+      created_at: joiningEvent.created_at,
       joined_at: new Date(),
     };
 
@@ -163,7 +164,6 @@ const JoinEventForm = () => {
               type="url"
               name="eventJoinerImageURL"
               placeholder="https://..."
-              required
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
