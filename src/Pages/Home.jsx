@@ -1,7 +1,8 @@
 import React from "react";
+import NewsLetter from "../Components/NewsLetter/NewsLetter";
 
 const Home = () => {
-  return <div>Home</div>;
+  return <NewsLetter></NewsLetter>;
 };
 
 export default Home;

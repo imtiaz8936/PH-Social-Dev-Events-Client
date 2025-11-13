@@ -24,8 +24,6 @@ const Register = () => {
     const regExp =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#^()\-_=+])[A-Za-z\d@$!%*?&#^()\-_=+]{8,}$/;
 
-    console.log(regExp.test(password));
-
     if (!regExp.test(password)) {
       toast.error(
         "Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character"
