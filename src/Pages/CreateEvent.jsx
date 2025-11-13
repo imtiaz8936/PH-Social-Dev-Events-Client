@@ -3,10 +3,14 @@ import { BsArrowLeft } from "react-icons/bs";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Contexts/AuthContext/AuthContext";
 import toast from "react-hot-toast";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useState } from "react";
 
 const CreateEvent = () => {
   const { user } = use(AuthContext);
   const navigate = useNavigate();
+  const [selectedDate, setSelectedDate] = useState(null);
 
   const handleCreateEvent = (e) => {
     e.preventDefault();
@@ -20,6 +24,22 @@ const CreateEvent = () => {
     const creator_image = form.eventCreatorImageURL.value || user.photoURL;
     const event_location = form.eventLocation.value;
     const event_description = form.eventDescription.value;
+
+    if (!selectedDate) {
+      toast.error("Please pick a date for your event");
+      return;
+    }
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const chosenDate = new Date(selectedDate);
+    chosenDate.setHours(0, 0, 0, 0);
+
+    if (chosenDate <= today) {
+      toast.error("Please pick a future date");
+      return;
+    }
+
     const newEvent = {
       event_title,
       event_type,
@@ -30,7 +50,7 @@ const CreateEvent = () => {
       creator_image,
       event_location,
       event_description,
-      created_at: new Date(),
+      created_at: selectedDate.toISOString(),
     };
 
     fetch("http://localhost:3000/create-event", {
@@ -41,14 +61,19 @@ const CreateEvent = () => {
       body: JSON.stringify(newEvent),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
-    toast.success("Your Event Created Successfully");
-    navigate("/upcoming-events");
+      .then((data) => {
+        console.log(data);
+        toast.success("Your Event Created Successfully");
+        navigate("/upcoming-events");
+      })
+      .catch(() => toast.error("Failed to create event. Try again!"));
   };
 
   return (
     <div className="w-11/12 mx-auto">
       <title>Create Event</title>
+
+      {/* Back Button */}
       <div className="flex justify-center">
         <button className="text-gray-600 mb-5 cursor-pointer hover:text-purple-600 mt-10">
           <Link to="/upcoming-events" className="flex gap-1 items-center">
@@ -61,6 +86,8 @@ const CreateEvent = () => {
       <h1 className="font-bold text-4xl text-center mb-10">
         Create <span className="text-[#894fed]">an Event</span>
       </h1>
+
+      {/* Form */}
       <div className="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg mb-8">
         <form
           onSubmit={handleCreateEvent}
@@ -75,17 +102,19 @@ const CreateEvent = () => {
               type="text"
               name="eventTitle"
               placeholder="e.g. Tree Plantation"
+              required
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
 
-          {/* Category */}
+          {/* Type */}
           <div>
             <label className="block text-gray-700 font-medium mb-1">
               Event Type
             </label>
             <select
               name="eventType"
+              required
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             >
               <option value="">Select a Type</option>
@@ -97,7 +126,7 @@ const CreateEvent = () => {
             </select>
           </div>
 
-          {/* Product Image URL */}
+          {/* Image URL */}
           <div className="md:col-span-2">
             <label className="block text-gray-700 font-medium mb-1">
               Event Image URL
@@ -105,23 +134,23 @@ const CreateEvent = () => {
             <input
               type="url"
               name="eventImageURL"
+              required
               placeholder="https://..."
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
 
-          {/* Seller Info */}
+          {/* Creator Info */}
           <div>
             <label className="block text-gray-700 font-medium mb-1">
               Your Name
             </label>
             <input
               type="text"
-              disabled={true}
-              value={user.displayName}
               name="eventCreatorName"
-              placeholder="e.g. Artisan Roasters"
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              value={user?.displayName || ""}
+              disabled
+              className="w-full border border-gray-300 rounded-md px-3 py-2 bg-gray-100 cursor-not-allowed"
             />
           </div>
 
@@ -131,11 +160,10 @@ const CreateEvent = () => {
             </label>
             <input
               type="email"
-              disabled={true}
-              value={user.email}
               name="eventCreatorEmail"
-              placeholder="e.g. example@email.com"
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              value={user?.email || ""}
+              disabled
+              className="w-full border border-gray-300 rounded-md px-3 py-2 bg-gray-100 cursor-not-allowed"
             />
           </div>
 
@@ -147,6 +175,7 @@ const CreateEvent = () => {
               type="tel"
               name="eventCreatorContact"
               placeholder="e.g. +880 121-1234567"
+              required
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
@@ -171,7 +200,22 @@ const CreateEvent = () => {
             <input
               type="text"
               name="eventLocation"
+              required
               placeholder="City, Country"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+          </div>
+
+          {/* 🗓️ Event Date */}
+          <div className="md:col-span-2">
+            <label className="block text-gray-700 font-medium mb-1">
+              Event Date
+            </label>
+            <DatePicker
+              selected={selectedDate}
+              onChange={(date) => setSelectedDate(date)}
+              placeholderText="Select event date"
+              dateFormat="MMMM d, yyyy"
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
@@ -179,11 +223,12 @@ const CreateEvent = () => {
           {/* Description */}
           <div className="md:col-span-2">
             <label className="block text-gray-700 font-medium mb-1">
-              Simple Description about your Event
+              Event Description
             </label>
             <textarea
-              rows="3"
               name="eventDescription"
+              rows="3"
+              required
               placeholder="e.g. The event is about..."
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
             ></textarea>
