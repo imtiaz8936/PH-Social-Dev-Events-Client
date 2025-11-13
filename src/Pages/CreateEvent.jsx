@@ -188,6 +188,7 @@ const CreateEvent = () => {
               type="url"
               name="eventCreatorImageURL"
               placeholder="https://..."
+              required
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
@@ -216,6 +217,7 @@ const CreateEvent = () => {
               onChange={(date) => setSelectedDate(date)}
               placeholderText="Select event date"
               dateFormat="MMMM d, yyyy"
+              required
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>

@@ -81,7 +81,7 @@ const JoinEventForm = () => {
               disabled={true}
               value={joiningEvent.event_title}
               placeholder="e.g. Tree Plantation"
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-not-allowed"
             />
           </div>
 
@@ -94,7 +94,7 @@ const JoinEventForm = () => {
               name="eventType"
               disabled={true}
               value={joiningEvent.event_type}
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-not-allowed"
             />
           </div>
 
@@ -109,7 +109,7 @@ const JoinEventForm = () => {
               value={joiningEvent.event_image}
               name="eventImageURL"
               placeholder="https://..."
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-not-allowed"
             />
           </div>
 
@@ -124,7 +124,7 @@ const JoinEventForm = () => {
               value={user.displayName}
               name="eventJoinerName"
               placeholder="e.g. Artisan Roasters"
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-not-allowed"
             />
           </div>
 
@@ -138,7 +138,7 @@ const JoinEventForm = () => {
               value={user.email}
               name="eventJoinerEmail"
               placeholder="e.g. example@email.com"
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-not-allowed"
             />
           </div>
 
@@ -150,6 +150,7 @@ const JoinEventForm = () => {
               type="tel"
               name="eventJoinerContact"
               placeholder="e.g. +880 121-1234567"
+              required
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
@@ -162,6 +163,7 @@ const JoinEventForm = () => {
               type="url"
               name="eventJoinerImageURL"
               placeholder="https://..."
+              required
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
@@ -177,7 +179,7 @@ const JoinEventForm = () => {
               value={joiningEvent.event_location}
               name="eventLocation"
               placeholder="City, Country"
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-not-allowed"
             />
           </div>
 

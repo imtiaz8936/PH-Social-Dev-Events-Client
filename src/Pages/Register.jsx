@@ -78,6 +78,7 @@ const Register = () => {
                 name="name"
                 className="input"
                 placeholder="Name"
+                required
               />
               <label className="label text-semibold text-[16px]">Email</label>
               <input
@@ -85,6 +86,7 @@ const Register = () => {
                 name="email"
                 className="input"
                 placeholder="Email"
+                required
               />
               <label className="label text-semibold text-[16px]">
                 PhotoURL
@@ -94,6 +96,7 @@ const Register = () => {
                 name="photoURL"
                 className="input"
                 placeholder="PhotoURL"
+                required
               />
               <div className="relative">
                 <label className="label text-semibold text-[16px]">
@@ -104,6 +107,7 @@ const Register = () => {
                   name="password"
                   placeholder="Password"
                   className="input"
+                  required
                 />
                 <span
                   onClick={() => setShow(!show)}

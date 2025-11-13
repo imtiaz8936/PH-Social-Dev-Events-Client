@@ -47,9 +47,9 @@ const UpdateEventForm = () => {
       <title>Update Event</title>
       <div className="flex justify-center">
         <button className="text-gray-600 mb-5 cursor-pointer hover:text-purple-600 mt-10">
-          <Link to="/upcoming-events" className="flex gap-1 items-center">
+          <Link to="/manage-events" className="flex gap-1 items-center">
             <BsArrowLeft size={20} />
-            <span className="font-medium">Back To Events</span>
+            <span className="font-medium">Back To Your Events</span>
           </Link>
         </button>
       </div>
@@ -72,6 +72,7 @@ const UpdateEventForm = () => {
               defaultValue={updatingEvent.event_title}
               name="eventTitle"
               placeholder="e.g. Tree Plantation"
+              required
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
@@ -84,6 +85,7 @@ const UpdateEventForm = () => {
             <select
               name="eventType"
               defaultValue={updatingEvent.event_type}
+              required
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             >
               <option value="">Select a Type</option>
@@ -105,6 +107,7 @@ const UpdateEventForm = () => {
               defaultValue={updatingEvent.event_image}
               name="eventImageURL"
               placeholder="https://..."
+              required
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
@@ -120,7 +123,7 @@ const UpdateEventForm = () => {
               value={user.displayName}
               name="eventCreatorName"
               placeholder="e.g. Artisan Roasters"
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-not-allowed"
             />
           </div>
 
@@ -134,7 +137,7 @@ const UpdateEventForm = () => {
               value={user.email}
               name="eventCreatorEmail"
               placeholder="e.g. example@email.com"
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-not-allowed"
             />
           </div>
 
@@ -147,6 +150,7 @@ const UpdateEventForm = () => {
               defaultValue={updatingEvent.creator_contact}
               name="eventCreatorContact"
               placeholder="e.g. +880 121-1234567"
+              required
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
@@ -160,6 +164,7 @@ const UpdateEventForm = () => {
               defaultValue={updatingEvent.creator_image}
               name="eventCreatorImageURL"
               placeholder="https://..."
+              required
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
@@ -174,6 +179,7 @@ const UpdateEventForm = () => {
               defaultValue={updatingEvent.event_location}
               name="eventLocation"
               placeholder="City, Country"
+              required
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
@@ -188,6 +194,7 @@ const UpdateEventForm = () => {
               defaultValue={updatingEvent.event_description}
               name="eventDescription"
               placeholder="e.g. The event is about..."
+              required
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
             ></textarea>
           </div>

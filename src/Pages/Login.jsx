@@ -58,6 +58,7 @@ const Login = () => {
                 name="email"
                 className="input"
                 placeholder="Email"
+                required
               />
               <div className="relative">
                 <label className="label text-semibold text-[16px]">
@@ -68,6 +69,7 @@ const Login = () => {
                   name="password"
                   placeholder="Password"
                   className="input"
+                  required
                 />
                 <span
                   onClick={() => setShow(!show)}
