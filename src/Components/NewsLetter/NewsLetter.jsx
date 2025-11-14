@@ -2,7 +2,7 @@ import React from "react";
 
 const NewsLetter = () => {
   return (
-    <section className="py-16">
+    <section className="w-11/12 mx-auto py-16">
       <div className="bg-white rounded-2xl shadow-lg grid grid-cols-1 md:grid-cols-2 overflow-hidden">
         {/* Left side - Info section */}
         <div className="bg-linear-to-br from-purple-600 to-indigo-600 text-white p-8 flex flex-col justify-center">

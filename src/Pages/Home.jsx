@@ -1,10 +1,12 @@
 import React from "react";
 import NewsLetter from "../Components/NewsLetter/NewsLetter";
 import ShowLatestCreatedEvents from "./ShowLatestCreatedEvents";
+import Banner from "../Components/Banner/Banner";
 
 const Home = () => {
   return (
-    <div className="w-11/12 mx-auto">
+    <div>
+      <Banner></Banner>
       <ShowLatestCreatedEvents></ShowLatestCreatedEvents>
       <NewsLetter></NewsLetter>
     </div>

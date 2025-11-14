@@ -7,7 +7,7 @@ const ShowLatestCreatedEvents = () => {
   const latestEvents = use(latestEventsPromise);
 
   return (
-    <div>
+    <div className="w-11/12 mx-auto">
       <h1 className="font-bold text-4xl text-center mb-10">
         Events To <span className="text-[#894fed]">Be Held</span>
       </h1>
