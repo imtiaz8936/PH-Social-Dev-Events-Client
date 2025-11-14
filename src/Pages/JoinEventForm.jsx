@@ -35,7 +35,7 @@ const JoinEventForm = () => {
       joined_at: new Date(),
     };
 
-    fetch("http://localhost:3000/join-event", {
+    fetch("social-dev-events-server.vercel.app/join-event", {
       method: "POST",
       headers: {
         "content-type": "application/json",

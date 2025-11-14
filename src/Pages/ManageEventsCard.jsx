@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 const ManageEventsCard = ({ event, myCreatedEvents, setMyCreatedEvents }) => {
   const handleDeleteEvent = () => {
-    fetch(`http://localhost:3000/delete-event/${event._id}`, {
+    fetch(`social-dev-events-server.vercel.app/delete-event/${event._id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

@@ -10,11 +10,14 @@ const ManageEvents = () => {
 
   useEffect(() => {
     if (user.email) {
-      fetch(`http://localhost:3000/manage-events?email=${user.email}`, {
-        headers: {
-          authorization: `Bearer ${user.accessToken}`,
-        },
-      })
+      fetch(
+        `social-dev-events-server.vercel.app/manage-events?email=${user.email}`,
+        {
+          headers: {
+            authorization: `Bearer ${user.accessToken}`,
+          },
+        }
+      )
         .then((res) => res.json())
         .then((eventsICreated) => setMyCreatedEvents(eventsICreated));
     }

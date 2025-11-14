@@ -29,13 +29,16 @@ const UpdateEventForm = () => {
       event_description,
     };
 
-    fetch(`http://localhost:3000/update-event/${updatingEvent._id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedEvent),
-    })
+    fetch(
+      `social-dev-events-server.vercel.app/update-event/${updatingEvent._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedEvent),
+      }
+    )
       .then((res) => res.json())
       .then((data) => console.log(data));
     toast.success("Your Event Updated Successfully");

@@ -53,7 +53,7 @@ const CreateEvent = () => {
       event_date: selectedDate.toISOString(),
     };
 
-    fetch("http://localhost:3000/create-event", {
+    fetch("social-dev-events-server.vercel.app/create-event", {
       method: "POST",
       headers: {
         "content-type": "application/json",

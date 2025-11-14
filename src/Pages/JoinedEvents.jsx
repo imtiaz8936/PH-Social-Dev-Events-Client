@@ -11,11 +11,14 @@ const JoinedEvents = () => {
 
   useEffect(() => {
     if (user.email) {
-      fetch(`http://localhost:3000/joined-events?email=${user.email}`, {
-        headers: {
-          authorization: `Bearer ${user.accessToken}`,
-        },
-      })
+      fetch(
+        `social-dev-events-server.vercel.app/joined-events?email=${user.email}`,
+        {
+          headers: {
+            authorization: `Bearer ${user.accessToken}`,
+          },
+        }
+      )
         .then((res) => res.json())
         .then((eventJoined) => setJoinedEvents(eventJoined));
     }
