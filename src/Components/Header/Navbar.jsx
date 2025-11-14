@@ -131,7 +131,7 @@ const Navbar = () => {
                 onMouseLeave={() => setShowName(false)}
               />
             </button>
-            {/* Tooltip */}
+
             {showName && (
               <div className="absolute mt-32 mr-10 bg-gray-800 text-white text-sm px-3 py-1 rounded-md shadow-md whitespace-nowrap z-10">
                 {user.displayName}

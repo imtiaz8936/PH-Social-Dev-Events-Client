@@ -12,7 +12,7 @@ const JoinedEvents = () => {
   useEffect(() => {
     if (user.email) {
       fetch(
-        `social-dev-events-server.vercel.app/joined-events?email=${user.email}`,
+        `https://social-dev-events-server.vercel.app/joined-events?email=${user.email}`,
         {
           headers: {
             authorization: `Bearer ${user.accessToken}`,
@@ -43,7 +43,6 @@ const JoinedEvents = () => {
 
         <div className="overflow-x-auto">
           <table className="table">
-            {/* head */}
             <thead>
               <tr className="text-lg">
                 <th>SL No</th>
@@ -54,7 +53,6 @@ const JoinedEvents = () => {
               </tr>
             </thead>
             <tbody>
-              {/* row 1 */}
               {joinedEvents.map((event, index) => (
                 <JoinedEventsCard
                   key={event._id}

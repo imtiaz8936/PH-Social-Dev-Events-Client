@@ -12,7 +12,6 @@ const Feature = () => {
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {/* Feature 1 */}
         <div className="p-6 bg-white shadow-lg rounded-2xl hover:shadow-xl transition">
           <div className="text-purple-600 text-4xl mb-4">📅</div>
           <h3 className="text-xl font-bold text-gray-700 mb-2">
@@ -24,7 +23,6 @@ const Feature = () => {
           </p>
         </div>
 
-        {/* Feature 2 */}
         <div className="p-6 bg-white shadow-lg rounded-2xl hover:shadow-xl transition">
           <div className="text-purple-600 text-4xl mb-4">🌍</div>
           <h3 className="text-xl font-bold text-gray-700 mb-2">
@@ -36,7 +34,6 @@ const Feature = () => {
           </p>
         </div>
 
-        {/* Feature 3 */}
         <div className="p-6 bg-white shadow-lg rounded-2xl hover:shadow-xl transition">
           <div className="text-purple-600 text-4xl mb-4">📊</div>
           <h3 className="text-xl font-bold text-gray-700 mb-2">
@@ -48,7 +45,6 @@ const Feature = () => {
           </p>
         </div>
 
-        {/* Feature 4 */}
         <div className="p-6 bg-white shadow-lg rounded-2xl hover:shadow-xl transition">
           <div className="text-purple-600 text-4xl mb-4">🤝</div>
           <h3 className="text-xl font-bold text-gray-700 mb-2">
@@ -60,7 +56,6 @@ const Feature = () => {
           </p>
         </div>
 
-        {/* Feature 5 */}
         <div className="p-6 bg-white shadow-lg rounded-2xl hover:shadow-xl transition">
           <div className="text-purple-600 text-4xl mb-4">🔔</div>
           <h3 className="text-xl font-bold text-gray-700 mb-2">
@@ -72,7 +67,6 @@ const Feature = () => {
           </p>
         </div>
 
-        {/* Feature 6 */}
         <div className="p-6 bg-white shadow-lg rounded-2xl hover:shadow-xl transition">
           <div className="text-purple-600 text-4xl mb-4">🛡️</div>
           <h3 className="text-xl font-bold text-gray-700 mb-2">

@@ -53,7 +53,7 @@ const CreateEvent = () => {
       event_date: selectedDate.toISOString(),
     };
 
-    fetch("social-dev-events-server.vercel.app/create-event", {
+    fetch("https://social-dev-events-server.vercel.app/create-event", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -73,7 +73,6 @@ const CreateEvent = () => {
     <div className="w-11/12 mx-auto">
       <title>Create Event</title>
 
-      {/* Back Button */}
       <div className="flex justify-center">
         <button className="mb-5 cursor-pointer hover:text-purple-600 mt-10">
           <Link to="/upcoming-events" className="flex gap-1 items-center">
@@ -87,13 +86,11 @@ const CreateEvent = () => {
         Create <span className="text-[#894fed]">an Event</span>
       </h1>
 
-      {/* Form */}
       <div className="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg mb-20">
         <form
           onSubmit={handleCreateEvent}
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
-          {/* Title */}
           <div>
             <label className="block text-gray-700 font-medium mb-1">
               Event Title
@@ -107,7 +104,6 @@ const CreateEvent = () => {
             />
           </div>
 
-          {/* Type */}
           <div>
             <label className="block text-gray-700 font-medium mb-1">
               Event Type
@@ -126,7 +122,6 @@ const CreateEvent = () => {
             </select>
           </div>
 
-          {/* Image URL */}
           <div className="md:col-span-2">
             <label className="block text-gray-700 font-medium mb-1">
               Event Image URL
@@ -140,7 +135,6 @@ const CreateEvent = () => {
             />
           </div>
 
-          {/* Creator Info */}
           <div>
             <label className="block text-gray-700 font-medium mb-1">
               Your Name
@@ -193,7 +187,6 @@ const CreateEvent = () => {
             />
           </div>
 
-          {/* Location */}
           <div className="md:col-span-2">
             <label className="block text-gray-700 font-medium mb-1">
               Event Location
@@ -207,7 +200,6 @@ const CreateEvent = () => {
             />
           </div>
 
-          {/* 🗓️ Event Date */}
           <div className="md:col-span-2">
             <label className="block text-gray-700 font-medium mb-1">
               Event Date
@@ -222,7 +214,6 @@ const CreateEvent = () => {
             />
           </div>
 
-          {/* Description */}
           <div className="md:col-span-2">
             <label className="block text-gray-700 font-medium mb-1">
               Event Description
@@ -236,7 +227,6 @@ const CreateEvent = () => {
             ></textarea>
           </div>
 
-          {/* Button */}
           <div className="md:col-span-2">
             <button
               type="submit"

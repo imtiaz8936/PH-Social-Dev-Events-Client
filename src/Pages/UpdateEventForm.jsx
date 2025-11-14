@@ -30,7 +30,7 @@ const UpdateEventForm = () => {
     };
 
     fetch(
-      `social-dev-events-server.vercel.app/update-event/${updatingEvent._id}`,
+      `https://social-dev-events-server.vercel.app/update-event/${updatingEvent._id}`,
       {
         method: "PATCH",
         headers: {
@@ -65,7 +65,6 @@ const UpdateEventForm = () => {
           onSubmit={handleUpdateEvent}
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
-          {/* Title */}
           <div>
             <label className="block text-gray-700 font-medium mb-1">
               Event Title
@@ -80,7 +79,6 @@ const UpdateEventForm = () => {
             />
           </div>
 
-          {/* Category */}
           <div>
             <label className="block text-gray-700 font-medium mb-1">
               Event Type
@@ -100,7 +98,6 @@ const UpdateEventForm = () => {
             </select>
           </div>
 
-          {/* Product Image URL */}
           <div className="md:col-span-2">
             <label className="block text-gray-700 font-medium mb-1">
               Event Image URL
@@ -115,7 +112,6 @@ const UpdateEventForm = () => {
             />
           </div>
 
-          {/* Seller Info */}
           <div>
             <label className="block text-gray-700 font-medium mb-1">
               Your Name
@@ -172,7 +168,6 @@ const UpdateEventForm = () => {
             />
           </div>
 
-          {/* Location */}
           <div className="md:col-span-2">
             <label className="block text-gray-700 font-medium mb-1">
               Event Location
@@ -187,7 +182,6 @@ const UpdateEventForm = () => {
             />
           </div>
 
-          {/* Description */}
           <div className="md:col-span-2">
             <label className="block text-gray-700 font-medium mb-1">
               Simple Description about your Event
@@ -202,7 +196,6 @@ const UpdateEventForm = () => {
             ></textarea>
           </div>
 
-          {/* Button */}
           <div className="md:col-span-2">
             <button
               type="submit"

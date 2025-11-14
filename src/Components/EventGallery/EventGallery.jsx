@@ -7,10 +7,8 @@ const EventGallery = () => {
         Event <span className="text-[#894fed]">Gallery</span>
       </h2>
 
-      {/* Marquee Container */}
       <div className="relative w-full overflow-hidden">
         <div className="flex gap-6 animate-marquee whitespace-nowrap">
-          {/* Image List */}
           <img
             src="https://www.tbsnews.net/sites/default/files/styles/infograph/public/images/2024/05/23/taposh_photo.3.jpg"
             alt="Event"

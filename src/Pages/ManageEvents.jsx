@@ -11,7 +11,7 @@ const ManageEvents = () => {
   useEffect(() => {
     if (user.email) {
       fetch(
-        `social-dev-events-server.vercel.app/manage-events?email=${user.email}`,
+        `https://social-dev-events-server.vercel.app/manage-events?email=${user.email}`,
         {
           headers: {
             authorization: `Bearer ${user.accessToken}`,

@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import EventCard from "./EventCard";
 
-fetch("social-dev-events-server.vercel.app/upcoming-events").then((res) =>
-  res.json()
+fetch("https://social-dev-events-server.vercel.app/upcoming-events").then(
+  (res) => res.json()
 );
 
 const UpcomingEvents = () => {
   const [upcomingEvents, setUpcomingEvents] = useState([]);
 
   useEffect(() => {
-    fetch("social-dev-events-server.vercel.app/upcoming-events")
+    fetch("https://social-dev-events-server.vercel.app/upcoming-events")
       .then((res) => res.json())
       .then((events) => setUpcomingEvents(events));
   }, []);

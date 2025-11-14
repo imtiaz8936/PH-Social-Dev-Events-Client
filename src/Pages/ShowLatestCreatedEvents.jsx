@@ -1,7 +1,7 @@
 import React, { use } from "react";
 import EventCard from "./EventCard";
 const latestEventsPromise = fetch(
-  "social-dev-events-server.vercel.app/latest-upcoming-events"
+  "https://social-dev-events-server.vercel.app/latest-upcoming-events"
 ).then((res) => res.json());
 const ShowLatestCreatedEvents = () => {
   const latestEvents = use(latestEventsPromise);

@@ -6,7 +6,6 @@ const Banner = () => {
   const { user } = use(AuthContext);
   return (
     <section className="w-11/12 mx-auto py-16 flex flex-col md:flex-row items-center justify-between gap-10">
-      {/* Left Content */}
       <div className="flex-1 text-center md:text-left">
         <h1 className="text-4xl lg:text-5xl font-extrabold leading-tight">
           Empower Your Community with
@@ -34,7 +33,6 @@ const Banner = () => {
         </div>
       </div>
 
-      {/* Right Image */}
       <div className="flex-1 flex justify-center">
         <img
           src="https://www.oecd.org/adobe/dynamicmedia/deliver/dm-aid--587a29f3-7188-4a11-aef6-2be6bb3a03a2/hands-together.jpg?quality=80&preferwebp=true"

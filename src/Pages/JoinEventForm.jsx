@@ -35,7 +35,7 @@ const JoinEventForm = () => {
       joined_at: new Date(),
     };
 
-    fetch("social-dev-events-server.vercel.app/join-event", {
+    fetch("https://social-dev-events-server.vercel.app/join-event", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -71,7 +71,6 @@ const JoinEventForm = () => {
           onSubmit={handleJoinEvent}
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
-          {/* Title */}
           <div>
             <label className="block text-gray-700 font-medium mb-1">
               Event Title
@@ -86,7 +85,6 @@ const JoinEventForm = () => {
             />
           </div>
 
-          {/* Category */}
           <div>
             <label className="block text-gray-700 font-medium mb-1">
               Event Type
@@ -99,7 +97,6 @@ const JoinEventForm = () => {
             />
           </div>
 
-          {/* Event Image URL */}
           <div className="md:col-span-2">
             <label className="block text-gray-700 font-medium mb-1">
               Event Image URL
@@ -114,7 +111,6 @@ const JoinEventForm = () => {
             />
           </div>
 
-          {/* Event Joiner Info */}
           <div>
             <label className="block text-gray-700 font-medium mb-1">
               Your Name
@@ -168,7 +164,6 @@ const JoinEventForm = () => {
             />
           </div>
 
-          {/* Location */}
           <div className="md:col-span-2">
             <label className="block text-gray-700 font-medium mb-1">
               Event Location
@@ -183,7 +178,6 @@ const JoinEventForm = () => {
             />
           </div>
 
-          {/* Button */}
           <div className="md:col-span-2">
             <button
               type="submit"

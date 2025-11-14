@@ -6,7 +6,6 @@ const Footer = () => {
   return (
     <footer className="bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 py-12 px-6">
       <div className="w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
-        {/* Logo + Tagline */}
         <div className="flex flex-col gap-3">
           <Link to="/" className="flex gap-1 items-center font-bold">
             <img className="w-18 h-16" src={logo} alt="" />
@@ -22,7 +21,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Links Column */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:justify-center">
           <div>
             <h3 className="font-semibold mb-3">Explore</h3>
@@ -103,9 +101,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Social Icons */}
         <div className="flex lg:justify-end items-center gap-5">
-          {/* Facebook */}
           <a
             href="#"
             className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition"
@@ -120,7 +116,6 @@ const Footer = () => {
             </svg>
           </a>
 
-          {/* Instagram */}
           <a
             href="#"
             className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition"
@@ -135,7 +130,6 @@ const Footer = () => {
             </svg>
           </a>
 
-          {/* X */}
           <a
             href="#"
             className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition"
@@ -152,7 +146,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom */}
       <div className="text-center mt-10 text-sm text-gray-600 dark:text-gray-400">
         © 2025 SocialDev Events. All Rights Reserved.
       </div>

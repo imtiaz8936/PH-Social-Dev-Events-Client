@@ -43,7 +43,7 @@ const Login = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto flex justify-center items-center mt-10">
+    <div className="max-w-7xl mx-auto flex justify-center items-center mt-10 mb-20">
       <title>Login</title>
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <h1 className="font-bold text-3xl text-center mt-5">

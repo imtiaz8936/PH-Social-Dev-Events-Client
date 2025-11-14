@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
         path: "/upcoming-events/event-details/:id",
         loader: ({ params }) =>
           fetch(
-            `social-dev-events-server.vercel.app/upcoming-events/event-details/${params.id}`
+            `https://social-dev-events-server.vercel.app/upcoming-events/event-details/${params.id}`
           ),
         Component: EventDetails,
       },
@@ -45,7 +45,7 @@ export const router = createBrowserRouter([
         path: "/join-event-form/:id",
         loader: ({ params }) =>
           fetch(
-            `social-dev-events-server.vercel.app/upcoming-events/event-details/${params.id}`
+            `https://social-dev-events-server.vercel.app/upcoming-events/event-details/${params.id}`
           ),
         element: (
           <PrivateRoutes>
@@ -65,7 +65,7 @@ export const router = createBrowserRouter([
         path: "/update-event/:id",
         loader: ({ params }) =>
           fetch(
-            `social-dev-events-server.vercel.app/update-event/${params.id}`
+            `https://social-dev-events-server.vercel.app/update-event/${params.id}`
           ),
         element: (
           <PrivateRoutes>
