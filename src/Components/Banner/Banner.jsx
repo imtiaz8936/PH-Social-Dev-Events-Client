@@ -2,7 +2,7 @@ import React, { use } from "react";
 import { Link } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
 
-const SwiperSlider = () => {
+const Banner = () => {
   const { user } = use(AuthContext);
   return (
     <section className="w-11/12 mx-auto py-16 flex flex-col md:flex-row items-center justify-between gap-10">
@@ -46,4 +46,4 @@ const SwiperSlider = () => {
   );
 };
 
-export default SwiperSlider;
+export default Banner;
