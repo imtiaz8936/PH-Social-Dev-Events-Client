@@ -24,9 +24,9 @@ const JoinedEvents = () => {
   return (
     <div>
       <title>Joined Events</title>
-      <div>
+      <div className="mb-20">
         <div className="flex justify-center">
-          <button className="text-gray-600 mb-5 cursor-pointer hover:text-purple-600 mt-10">
+          <button className="mb-5 cursor-pointer hover:text-purple-600 mt-10">
             <Link to="/upcoming-events" className="flex gap-1 items-center">
               <BsArrowLeft size={20} />
               <span className="font-medium">Back To Events</span>

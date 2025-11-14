@@ -6,7 +6,7 @@ const Feature = () => {
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
         Powerful <span className="text-[#894fed]">Features</span>
       </h2>
-      <p className="text-center text-gray-600 max-w-xl mx-auto mb-12">
+      <p className="text-center max-w-xl mx-auto mb-12">
         Explore how our Social Development Events Manager helps communities stay
         connected, informed, and engaged in meaningful activities.
       </p>
@@ -15,7 +15,9 @@ const Feature = () => {
         {/* Feature 1 */}
         <div className="p-6 bg-white shadow-lg rounded-2xl hover:shadow-xl transition">
           <div className="text-purple-600 text-4xl mb-4">📅</div>
-          <h3 className="text-xl font-bold mb-2">Create & Manage Events</h3>
+          <h3 className="text-xl font-bold text-gray-700 mb-2">
+            Create & Manage Events
+          </h3>
           <p className="text-gray-600 text-sm">
             Easily organize community activities with event creation,
             scheduling, and management tools.
@@ -25,7 +27,9 @@ const Feature = () => {
         {/* Feature 2 */}
         <div className="p-6 bg-white shadow-lg rounded-2xl hover:shadow-xl transition">
           <div className="text-purple-600 text-4xl mb-4">🌍</div>
-          <h3 className="text-xl font-bold mb-2">Join Local Events</h3>
+          <h3 className="text-xl font-bold text-gray-700 mb-2">
+            Join Local Events
+          </h3>
           <p className="text-gray-600 text-sm">
             Explore nearby social development events and participate in
             initiatives that make real impact.
@@ -35,7 +39,9 @@ const Feature = () => {
         {/* Feature 3 */}
         <div className="p-6 bg-white shadow-lg rounded-2xl hover:shadow-xl transition">
           <div className="text-purple-600 text-4xl mb-4">📊</div>
-          <h3 className="text-xl font-bold mb-2">Track Event Progress</h3>
+          <h3 className="text-xl font-bold text-gray-700 mb-2">
+            Track Event Progress
+          </h3>
           <p className="text-gray-600 text-sm">
             Monitor community-driven projects and stay updated on event outcomes
             and volunteer contributions.
@@ -45,7 +51,9 @@ const Feature = () => {
         {/* Feature 4 */}
         <div className="p-6 bg-white shadow-lg rounded-2xl hover:shadow-xl transition">
           <div className="text-purple-600 text-4xl mb-4">🤝</div>
-          <h3 className="text-xl font-bold mb-2">Connect With Organizers</h3>
+          <h3 className="text-xl font-bold text-gray-700 mb-2">
+            Connect With Organizers
+          </h3>
           <p className="text-gray-600 text-sm">
             Communicate with event creators directly to get details, contribute,
             or volunteer.
@@ -55,7 +63,9 @@ const Feature = () => {
         {/* Feature 5 */}
         <div className="p-6 bg-white shadow-lg rounded-2xl hover:shadow-xl transition">
           <div className="text-purple-600 text-4xl mb-4">🔔</div>
-          <h3 className="text-xl font-bold mb-2">Real-Time Notifications</h3>
+          <h3 className="text-xl font-bold text-gray-700 mb-2">
+            Real-Time Notifications
+          </h3>
           <p className="text-gray-600 text-sm">
             Stay updated with reminders and alerts for events you have joined or
             created.
@@ -65,7 +75,9 @@ const Feature = () => {
         {/* Feature 6 */}
         <div className="p-6 bg-white shadow-lg rounded-2xl hover:shadow-xl transition">
           <div className="text-purple-600 text-4xl mb-4">🛡️</div>
-          <h3 className="text-xl font-bold mb-2">Secure & Easy Platform</h3>
+          <h3 className="text-xl font-bold text-gray-700 mb-2">
+            Secure & Easy Platform
+          </h3>
           <p className="text-gray-600 text-sm">
             A safe, user-friendly interface designed for both event organizers
             and community users.

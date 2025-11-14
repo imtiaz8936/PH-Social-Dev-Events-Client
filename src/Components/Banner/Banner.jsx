@@ -8,14 +8,14 @@ const Banner = () => {
     <section className="w-11/12 mx-auto py-16 flex flex-col md:flex-row items-center justify-between gap-10">
       {/* Left Content */}
       <div className="flex-1 text-center md:text-left">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+        <h1 className="text-4xl lg:text-5xl font-extrabold leading-tight">
           Empower Your Community with
           <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-600 to-indigo-500">
             {" "}
             Social Development Events
           </span>
         </h1>
-        <p className="text-gray-600 mt-4 text-base md:text-lg max-w-lg mx-auto md:mx-0">
+        <p className="mt-4 text-base md:text-lg max-w-lg mx-auto md:mx-0">
           Discover, create, and join impactful social events around you.
           Together, let's build a stronger, cleaner, and more connected world.
         </p>

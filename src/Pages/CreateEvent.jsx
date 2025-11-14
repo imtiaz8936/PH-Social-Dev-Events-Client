@@ -75,7 +75,7 @@ const CreateEvent = () => {
 
       {/* Back Button */}
       <div className="flex justify-center">
-        <button className="text-gray-600 mb-5 cursor-pointer hover:text-purple-600 mt-10">
+        <button className="mb-5 cursor-pointer hover:text-purple-600 mt-10">
           <Link to="/upcoming-events" className="flex gap-1 items-center">
             <BsArrowLeft size={20} />
             <span className="font-medium">Back To Events</span>
@@ -88,7 +88,7 @@ const CreateEvent = () => {
       </h1>
 
       {/* Form */}
-      <div className="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg mb-8">
+      <div className="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg mb-20">
         <form
           onSubmit={handleCreateEvent}
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
@@ -103,7 +103,7 @@ const CreateEvent = () => {
               name="eventTitle"
               placeholder="e.g. Tree Plantation"
               required
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
 
@@ -115,7 +115,7 @@ const CreateEvent = () => {
             <select
               name="eventType"
               required
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             >
               <option value="">Select a Type</option>
               <option>Health</option>
@@ -136,7 +136,7 @@ const CreateEvent = () => {
               name="eventImageURL"
               required
               placeholder="https://..."
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
 
@@ -150,7 +150,7 @@ const CreateEvent = () => {
               name="eventCreatorName"
               value={user?.displayName || ""}
               disabled
-              className="w-full border border-gray-300 rounded-md px-3 py-2 bg-gray-100 cursor-not-allowed"
+              className="w-full text-gray-700 border border-gray-300 rounded-md px-3 py-2 bg-gray-100 cursor-not-allowed"
             />
           </div>
 
@@ -163,7 +163,7 @@ const CreateEvent = () => {
               name="eventCreatorEmail"
               value={user?.email || ""}
               disabled
-              className="w-full border border-gray-300 rounded-md px-3 py-2 bg-gray-100 cursor-not-allowed"
+              className="w-full text-gray-700 border border-gray-300 rounded-md px-3 py-2 bg-gray-100 cursor-not-allowed"
             />
           </div>
 
@@ -176,7 +176,7 @@ const CreateEvent = () => {
               name="eventCreatorContact"
               placeholder="e.g. +880 121-1234567"
               required
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
 
@@ -189,7 +189,7 @@ const CreateEvent = () => {
               name="eventCreatorImageURL"
               placeholder="https://..."
               required
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
 
@@ -203,7 +203,7 @@ const CreateEvent = () => {
               name="eventLocation"
               required
               placeholder="City, Country"
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
 
@@ -218,7 +218,7 @@ const CreateEvent = () => {
               placeholderText="Select event date"
               dateFormat="MMMM d, yyyy"
               required
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
 
@@ -232,7 +232,7 @@ const CreateEvent = () => {
               rows="3"
               required
               placeholder="e.g. The event is about..."
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+              className="w-full text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
             ></textarea>
           </div>
 

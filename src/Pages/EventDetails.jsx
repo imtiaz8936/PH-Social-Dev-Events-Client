@@ -8,7 +8,7 @@ const EventDetails = () => {
   return (
     <div>
       <title>Event Details</title>
-      <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-2xl overflow-hidden p-6 mt-10">
+      <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-2xl overflow-hidden p-6 mt-10 mb-20">
         {/* Event Image */}
         <img
           src={event.event_image}

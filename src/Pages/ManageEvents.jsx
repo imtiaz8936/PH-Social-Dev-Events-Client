@@ -24,7 +24,7 @@ const ManageEvents = () => {
     <div className="w-11/12 mx-auto">
       <title>Manage Events</title>
       <div className="flex justify-center">
-        <button className="text-gray-600 mb-5 cursor-pointer hover:text-purple-600 mt-10">
+        <button className="mb-5 cursor-pointer hover:text-purple-600 mt-10">
           <Link to="/upcoming-events" className="flex gap-1 items-center">
             <BsArrowLeft size={20} />
             <span className="font-medium">Back To Events</span>
@@ -37,7 +37,7 @@ const ManageEvents = () => {
       {myCreatedEvents.message === "Forbidden Access" ? (
         <div>403 {myCreatedEvents.message}</div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
           {myCreatedEvents.map((event) => (
             <ManageEventsCard
               key={event._id}

@@ -52,7 +52,7 @@ const JoinEventForm = () => {
     <div>
       <title>Join Event</title>
       <div className="flex justify-center">
-        <button className="text-gray-600 mb-5 cursor-pointer hover:text-purple-600 mt-10">
+        <button className="mb-5 cursor-pointer hover:text-purple-600 mt-10">
           <Link
             to={`http://localhost:5173/upcoming-events/event-details/${id}`}
             className="flex gap-1 items-center"
@@ -66,7 +66,7 @@ const JoinEventForm = () => {
       <h1 className="font-bold text-4xl text-center mb-10">
         Join <span className="text-[#894fed]">an Event</span>
       </h1>
-      <div className="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg mb-8">
+      <div className="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg mb-20">
         <form
           onSubmit={handleJoinEvent}
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
@@ -82,7 +82,7 @@ const JoinEventForm = () => {
               disabled={true}
               value={joiningEvent.event_title}
               placeholder="e.g. Tree Plantation"
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-not-allowed"
+              className="w-full text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-not-allowed"
             />
           </div>
 
@@ -95,7 +95,7 @@ const JoinEventForm = () => {
               name="eventType"
               disabled={true}
               value={joiningEvent.event_type}
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-not-allowed"
+              className="w-full text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-not-allowed"
             />
           </div>
 
@@ -110,7 +110,7 @@ const JoinEventForm = () => {
               value={joiningEvent.event_image}
               name="eventImageURL"
               placeholder="https://..."
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-not-allowed"
+              className="w-full text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-not-allowed"
             />
           </div>
 
@@ -125,7 +125,7 @@ const JoinEventForm = () => {
               value={user.displayName}
               name="eventJoinerName"
               placeholder="e.g. Artisan Roasters"
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-not-allowed"
+              className="w-full text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-not-allowed"
             />
           </div>
 
@@ -139,7 +139,7 @@ const JoinEventForm = () => {
               value={user.email}
               name="eventJoinerEmail"
               placeholder="e.g. example@email.com"
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-not-allowed"
+              className="w-full text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-not-allowed"
             />
           </div>
 
@@ -152,7 +152,7 @@ const JoinEventForm = () => {
               name="eventJoinerContact"
               placeholder="e.g. +880 121-1234567"
               required
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
 
@@ -164,7 +164,7 @@ const JoinEventForm = () => {
               type="url"
               name="eventJoinerImageURL"
               placeholder="https://..."
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
 
@@ -179,7 +179,7 @@ const JoinEventForm = () => {
               value={joiningEvent.event_location}
               name="eventLocation"
               placeholder="City, Country"
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-not-allowed"
+              className="w-full text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-not-allowed"
             />
           </div>
 

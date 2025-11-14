@@ -10,7 +10,7 @@ const PrivateRoutes = ({ children }) => {
   if (loading) {
     return (
       <div className="flex justify-center items-center mt-30">
-        <DotLoader />
+        <DotLoader color="red" />
       </div>
     );
   }

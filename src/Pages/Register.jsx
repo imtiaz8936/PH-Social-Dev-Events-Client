@@ -132,9 +132,9 @@ const Register = () => {
           </form>
           {/* Divider */}
           <div className="flex items-center justify-center gap-2 my-2">
-            <div className="h-px w-16 bg-black"></div>
-            <span className="text-[16px] text-black">or continue with</span>
-            <div className="h-px w-16 bg-black"></div>
+            <div className="h-px w-16 bg-blue-700"></div>
+            <span className="text-[16px] text-blue-700">or continue with</span>
+            <div className="h-px w-16 bg-blue-700"></div>
           </div>
 
           {/* Google Signin */}
