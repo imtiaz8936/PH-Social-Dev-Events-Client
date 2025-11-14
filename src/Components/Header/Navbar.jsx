@@ -5,12 +5,25 @@ import logo from "../../assets/logo.png";
 import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
 import toast from "react-hot-toast";
 import { IoLogOutOutline } from "react-icons/io5";
+import { useEffect } from "react";
 
 const Navbar = () => {
   const { user, userLogout } = use(AuthContext);
   const [showName, setShowName] = useState(false);
   const dummyPhotoURL =
     "https://png.pngtree.com/png-vector/20240910/ourmid/pngtree-business-man-avatar-on-isolate-png-image_13805756.png";
+
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const handleTheme = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  };
 
   const handleLogout = () => {
     userLogout()
@@ -136,6 +149,15 @@ const Navbar = () => {
                   <p className="text-red-500 text-[16px]">{user.email}</p>
                 </div>
                 {profilePicNavLinks}
+              </div>
+              <div className="flex flex-inline gap-3">
+                <span className="font-medium text-[16px]">Toggle Theme</span>
+                <input
+                  onChange={(e) => handleTheme(e.target.checked)}
+                  type="checkbox"
+                  defaultChecked={localStorage.getItem("theme") === "dark"}
+                  className="toggle"
+                />
               </div>
               <Link
                 to="/auth-login"

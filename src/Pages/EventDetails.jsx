@@ -27,7 +27,7 @@ const EventDetails = () => {
             {event.event_type}
           </span>
           <span className="text-sm text-gray-600">
-            {new Date(event.created_at).toLocaleDateString("en-US", {
+            {new Date(event.event_date).toLocaleDateString("en-US", {
               year: "numeric",
               month: "short",
               day: "numeric",
