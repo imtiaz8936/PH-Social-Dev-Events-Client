@@ -10,9 +10,15 @@ const JoinedEvents = () => {
   console.log(joinedEvents);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/joined-events?email=${user.email}`)
-      .then((res) => res.json())
-      .then((eventJoined) => setJoinedEvents(eventJoined));
+    if (user.email) {
+      fetch(`http://localhost:3000/joined-events?email=${user.email}`, {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((eventJoined) => setJoinedEvents(eventJoined));
+    }
   }, [user]);
 
   return (

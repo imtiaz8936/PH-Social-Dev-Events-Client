@@ -2,7 +2,7 @@ import React from "react";
 
 const EventGallery = () => {
   return (
-    <section className="w-11/12 mx-auto py-16 overflow-hidden">
+    <section className="w-11/12 mx-auto pt-16 overflow-hidden">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
         Event <span className="text-[#894fed]">Gallery</span>
       </h2>

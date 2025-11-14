@@ -9,9 +9,15 @@ const ManageEvents = () => {
   const { user } = use(AuthContext);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/manage-events?email=${user.email}`)
-      .then((res) => res.json())
-      .then((eventsICreated) => setMyCreatedEvents(eventsICreated));
+    if (user.email) {
+      fetch(`http://localhost:3000/manage-events?email=${user.email}`, {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((eventsICreated) => setMyCreatedEvents(eventsICreated));
+    }
   }, [user]);
 
   return (
@@ -28,16 +34,20 @@ const ManageEvents = () => {
       <h1 className="font-bold text-4xl text-center mb-10">
         Manage <span className="text-[#894fed]">Your Events</span>
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {myCreatedEvents.map((event) => (
-          <ManageEventsCard
-            key={event._id}
-            event={event}
-            myCreatedEvents={myCreatedEvents}
-            setMyCreatedEvents={setMyCreatedEvents}
-          ></ManageEventsCard>
-        ))}
-      </div>
+      {myCreatedEvents.message === "Forbidden Access" ? (
+        <div>403 {myCreatedEvents.message}</div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {myCreatedEvents.map((event) => (
+            <ManageEventsCard
+              key={event._id}
+              event={event}
+              myCreatedEvents={myCreatedEvents}
+              setMyCreatedEvents={setMyCreatedEvents}
+            ></ManageEventsCard>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
