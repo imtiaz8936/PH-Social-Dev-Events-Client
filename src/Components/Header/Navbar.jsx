@@ -35,23 +35,6 @@ const Navbar = () => {
       });
   };
 
-  const navLinks = (
-    <>
-      <NavLink
-        to="/"
-        className={({ isActive }) => `${isActive ? "active-link" : ""}`}
-      >
-        <li className="font-semibold text-[17px]">Home</li>
-      </NavLink>
-      <NavLink
-        to="/upcoming-events"
-        className={({ isActive }) => `${isActive ? "active-link" : ""}`}
-      >
-        <li className="font-semibold text-[17px]">Upcoming Events</li>
-      </NavLink>
-    </>
-  );
-
   const profilePicNavLinks = (
     <>
       <NavLink
@@ -74,9 +57,28 @@ const Navbar = () => {
       </NavLink>
     </>
   );
+
+  const navLinks = (
+    <>
+      <NavLink
+        to="/"
+        className={({ isActive }) => `${isActive ? "active-link" : ""}`}
+      >
+        <li className="font-semibold text-[17px]">Home</li>
+      </NavLink>
+      <NavLink
+        to="/upcoming-events"
+        className={({ isActive }) => `${isActive ? "active-link" : ""}`}
+      >
+        <li className="font-semibold text-[17px]">Upcoming Events</li>
+      </NavLink>
+      {user && profilePicNavLinks}
+    </>
+  );
+
   return (
-    <div className="w-11/12 mx-auto">
-      <div className="navbar">
+    <div className="sticky top-0 z-50 bg-base-100">
+      <div className="navbar w-11/12 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -162,26 +164,32 @@ const Navbar = () => {
               <Link
                 to="/auth-login"
                 onClick={handleLogout}
-                className="btn btn-primary w-full text-[16px] 
+                className="btn w-full bg-linear-to-r from-purple-600 to-indigo-500 hover:opacity-90 text-white text-[16px] 
                                 flex flex-inline justify-center items-center"
               >
-                Log Out <IoLogOutOutline size={20} />
+                Sign Out <IoLogOutOutline size={20} />
               </Link>
             </div>
             <Link
               to="/auth-login"
               onClick={handleLogout}
-              className="btn btn-primary text-[16px]"
+              className="btn bg-linear-to-r from-purple-600 to-indigo-500 hover:opacity-90 text-white text-[16px]"
             >
-              Log Out
+              Sign Out
             </Link>
           </div>
         ) : (
           <div className="navbar-end gap-4">
-            <Link to="/auth-login" className="btn btn-primary text-[16px]">
-              Log In
+            <Link
+              to="/auth-login"
+              className="btn bg-linear-to-r from-purple-600 to-indigo-500 hover:opacity-90 text-white text-[16px]"
+            >
+              Sign In
             </Link>
-            <Link to="/auth-register" className="btn btn-primary text-[16px]">
+            <Link
+              to="/auth-register"
+              className="btn bg-linear-to-r from-purple-600 to-indigo-500 hover:opacity-90 text-white text-[16px]"
+            >
               Sign Up
             </Link>
           </div>

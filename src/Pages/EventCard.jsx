@@ -11,26 +11,26 @@ const EventCard = ({ event }) => {
       />
 
       <div className="p-4">
-        <h3 className="text-xl font-semibold text-gray-800 mb-1">
+        <h3 className="text-xl font-semibold text-gray-800 mb-3">
           {event.event_title}
         </h3>
-        <p className="text-sm text-gray-500 mb-2">{event.event_location}</p>
+        {/* <p className="text-sm text-gray-500 mb-2">{event.event_location}</p> */}
 
-        <div className="flex justify-between items-center mb-4">
+        <div className="mb-4">
           <span className="text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
             {event.event_type}
           </span>
-          <span className="text-sm text-gray-600">
+          {/* <span className="text-sm text-gray-600">
             {new Date(event.event_date).toLocaleDateString("en-US", {
               year: "numeric",
               month: "short",
               day: "numeric",
             })}
-          </span>
+          </span> */}
         </div>
 
         <Link to={`/upcoming-events/event-details/${event._id}`}>
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded-lg cursor-pointer transition-colors duration-200">
+          <button className="w-full bg-linear-to-r from-purple-600 to-indigo-500 hover:opacity-90 text-white text-[17px] font-medium py-2 px-4 rounded-lg cursor-pointer transition-colors duration-200">
             View Event
           </button>
         </Link>
