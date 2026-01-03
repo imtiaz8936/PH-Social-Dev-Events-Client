@@ -1,6 +1,13 @@
 import React from "react";
+import toast from "react-hot-toast";
 
 const NewsLetter = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    e.target.reset();
+    toast.success("You Successfully Subscribed to Our Newsletter");
+  };
+
   return (
     <section className="w-11/12 mx-auto py-16">
       <div className="bg-white rounded-2xl shadow-lg grid grid-cols-1 md:grid-cols-2 overflow-hidden">
@@ -27,7 +34,7 @@ const NewsLetter = () => {
             Stay connected and never miss an opportunity to make an impact.
           </p>
 
-          <form className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <input
                 type="text"
@@ -43,7 +50,7 @@ const NewsLetter = () => {
               />
             </div>
             <button
-              type="button"
+              type="submit"
               className="w-full bg-linear-to-r from-purple-600 to-indigo-500 text-white font-semibold py-3 rounded-md hover:opacity-90 transition cursor-pointer"
             >
               Subscribe
