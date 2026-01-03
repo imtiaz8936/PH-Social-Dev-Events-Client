@@ -6,10 +6,13 @@ import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
 import toast from "react-hot-toast";
 import { IoLogOutOutline } from "react-icons/io5";
 import { useEffect } from "react";
+import { MdOutlineDarkMode } from "react-icons/md";
+import { MdOutlineLightMode } from "react-icons/md";
 
 const Navbar = () => {
   const { user, userLogout } = use(AuthContext);
   const [showName, setShowName] = useState(false);
+  const [open, setOpen] = useState(false);
   const dummyPhotoURL =
     "https://png.pngtree.com/png-vector/20240910/ourmid/pngtree-business-man-avatar-on-isolate-png-image_13805756.png";
 
@@ -20,10 +23,6 @@ const Navbar = () => {
     html.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
-
-  const handleTheme = (checked) => {
-    setTheme(checked ? "dark" : "light");
-  };
 
   const handleLogout = () => {
     userLogout()
@@ -121,10 +120,19 @@ const Navbar = () => {
         {user ? (
           <div className="navbar-end gap-4 relative">
             <button
-              className="cursor-pointer"
-              popoverTarget="popover-1"
-              style={{ anchorName: "--anchor-1" }}
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="w-10 h-10 bg-gray-600 rounded-full flex justify-center items-center cursor-pointer"
             >
+              {theme === "dark" ? (
+                <MdOutlineLightMode
+                  size={24}
+                  color="white"
+                ></MdOutlineLightMode>
+              ) : (
+                <MdOutlineDarkMode size={24} color="white"></MdOutlineDarkMode>
+              )}
+            </button>
+            <button className="cursor-pointer" onClick={() => setOpen(!open)}>
               <img
                 className="w-14 h-14 rounded-full"
                 src={user.photoURL || dummyPhotoURL}
@@ -133,50 +141,34 @@ const Navbar = () => {
                 onMouseLeave={() => setShowName(false)}
               />
             </button>
-
             {showName && (
               <div className="absolute mt-32 mr-10 bg-gray-800 text-white text-sm px-3 py-1 rounded-md shadow-md whitespace-nowrap z-10">
                 {user.displayName}
               </div>
             )}
-            <div
-              className="dropdown menu w-52 rounded-box bg-base-100 shadow-sm space-y-4"
-              popover="auto"
-              id="popover-1"
-              style={{ positionAnchor: "--anchor-1" }}
-            >
-              <div className="space-y-2">
-                <div>
-                  <h2 className="text-xl font-semibold">{user.displayName}</h2>
-                  <p className="text-red-500 text-[16px]">{user.email}</p>
+
+            {open && (
+              <div className="absolute right-0 top-full mt-3 w-58 rounded-box bg-base-100 shadow-lg space-y-4 z-50 origin-top-right">
+                <div className="space-y-2 p-4">
+                  <div>
+                    <h2 className="text-xl font-semibold">
+                      {user.displayName}
+                    </h2>
+                    <p className="text-red-500 text-[16px]">{user.email}</p>
+                  </div>
+
+                  <ul className="list-none">{profilePicNavLinks}</ul>
+
+                  <Link
+                    to="/auth-login"
+                    onClick={handleLogout}
+                    className="btn w-full mt-4 bg-linear-to-r from-purple-600 to-indigo-500 text-white flex justify-center items-center gap-2"
+                  >
+                    Sign Out <IoLogOutOutline size={20} />
+                  </Link>
                 </div>
-                {profilePicNavLinks}
               </div>
-              <div className="flex flex-inline gap-3">
-                <span className="font-medium text-[16px]">Toggle Theme</span>
-                <input
-                  onChange={(e) => handleTheme(e.target.checked)}
-                  type="checkbox"
-                  defaultChecked={localStorage.getItem("theme") === "dark"}
-                  className="toggle"
-                />
-              </div>
-              <Link
-                to="/auth-login"
-                onClick={handleLogout}
-                className="btn w-full bg-linear-to-r from-purple-600 to-indigo-500 hover:opacity-90 text-white text-[16px] 
-                                flex flex-inline justify-center items-center"
-              >
-                Sign Out <IoLogOutOutline size={20} />
-              </Link>
-            </div>
-            <Link
-              to="/auth-login"
-              onClick={handleLogout}
-              className="btn bg-linear-to-r from-purple-600 to-indigo-500 hover:opacity-90 text-white text-[16px]"
-            >
-              Sign Out
-            </Link>
+            )}
           </div>
         ) : (
           <div className="navbar-end gap-4">
