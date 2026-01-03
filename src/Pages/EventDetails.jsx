@@ -1,4 +1,5 @@
 import React from "react";
+import { IoCallSharp, IoLocationSharp } from "react-icons/io5";
 import { Link, useLoaderData } from "react-router";
 
 const EventDetails = () => {
@@ -32,8 +33,9 @@ const EventDetails = () => {
           </span>
         </div>
 
-        <p className="text-gray-600 mb-4">
-          📍 <span className="font-medium">{event.event_location}</span>
+        <p className="text-gray-600 mb-4 flex flex-inline gap-1 items-center">
+          <IoLocationSharp size={20} />{" "}
+          <span className="font-medium">{event.event_location}</span>
         </p>
 
         <div className="mb-6">
@@ -51,11 +53,13 @@ const EventDetails = () => {
           </h3>
           <p className="text-gray-800 font-medium">{event.creator_name}</p>
           <p className="text-blue-600 text-sm mb-1">{event.creator_email}</p>
-          <p className="text-gray-600 text-sm">📞 {event.creator_contact}</p>
+          <p className="text-gray-600 text-sm flex flex-inline gap-1 items-center">
+            <IoCallSharp size={20} /> {event.creator_contact}
+          </p>
         </div>
 
         <Link to={`/join-event-form/${event._id}`}>
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded-lg cursor-pointer transition-colors duration-200">
+          <button className="w-full bg-linear-to-r from-purple-600 to-indigo-500 hover:opacity-90 text-white text-[17px] font-medium py-2 px-4 rounded-lg cursor-pointer transition-colors duration-200">
             Join This Event
           </button>
         </Link>

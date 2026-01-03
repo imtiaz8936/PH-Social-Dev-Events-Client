@@ -31,7 +31,7 @@ const EventCard = ({ event }) => {
 
         <Link to={`/upcoming-events/event-details/${event._id}`}>
           <button className="w-full bg-linear-to-r from-purple-600 to-indigo-500 hover:opacity-90 text-white text-[17px] font-medium py-2 px-4 rounded-lg cursor-pointer transition-colors duration-200">
-            View Event
+            Event Details
           </button>
         </Link>
       </div>
