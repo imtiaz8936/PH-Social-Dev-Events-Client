@@ -26,22 +26,22 @@ const Footer = () => {
             <h3 className="font-semibold mb-3">Explore</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:underline">
+                <a href="/" className="hover:underline">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="/upcoming-events" className="hover:underline">
                   Upcoming Events
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="/gallery" className="hover:underline">
                   Gallery
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="/about-us" className="hover:underline">
                   About Us
                 </a>
               </li>
@@ -147,7 +147,7 @@ const Footer = () => {
       </div>
 
       <div className="text-center mt-10 text-sm text-gray-600 dark:text-gray-400">
-        © 2025 SocialDev Events. All Rights Reserved.
+        © 2026 Social Events Manager. All Rights Reserved.
       </div>
     </footer>
   );

@@ -7,8 +7,8 @@ const Feature = () => {
         Powerful <span className="text-[#894fed]">Features</span>
       </h2>
       <p className="text-center max-w-xl mx-auto mb-12">
-        Explore how our Social Development Events Manager helps communities stay
-        connected, informed, and engaged in meaningful activities.
+        Explore how our Social Events Manager helps communities stay connected,
+        informed, and engaged in meaningful activities.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
